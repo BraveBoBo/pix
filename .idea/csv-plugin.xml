@@ -10,7 +10,21 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\dataset\pix2pix_result\mssim.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\dataset\pix2pix_result\psnr.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\dataset\pix2pix_result\ssim.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
