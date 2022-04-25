@@ -4,6 +4,7 @@ import pandas as pd
 import os
 from ssim import mssim_multichannel
 from matplotlib import pyplot as plt
+from lpip import lpi
 
 
 # [h,w,c]
@@ -57,11 +58,12 @@ def class_photo(dirpath):
     return real_A_list, real_B_list, fake_B_list
 
 
-def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后的结果
-    dataname = evaluate_name  # 可复用代码
+def evalute(dirpath, dataname):  # dirpath 为正向传播之后的结果 dataname 用来选择使用的评价标准
+    dataname = dataname  # 可复用代码
     columns = ['with_scrach2predication', 'with_scrach2groundtruth', 'predication2groundtruth']
-    data = create_data(columns)
+    data = create_data(columns)  # dataframe 对象
     real_A_list, real_B_list, fake_B_list = class_photo(dirpath)
+
     for real_A_filename in real_A_list:
         real_A_img = cv2.imread(os.path.join(dirpath, real_A_filename))
         for fake_B_filename in fake_B_list:
@@ -82,6 +84,11 @@ def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后�
             with_scrach2groundtruth = mssim_multichannel(real_A_img, real_B_img)
             predication2groundtruth = mssim_multichannel(fake_B_img, real_B_img)
 
+        elif dataname == 'lpips':  # 计算lpips
+            with_scrach2predication = lpi(real_A_img, fake_B_img)
+            with_scrach2groundtruth = lpi(real_A_img, real_B_img)
+            predication2groundtruth = lpi(fake_B_img, real_B_img)
+
         else:  # 默认计算mse
             with_scrach2predication = mse(real_A_img, fake_B_img)
             with_scrach2groundtruth = mse(real_A_img, real_B_img)
@@ -97,8 +104,8 @@ def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后�
     return data, data_csv
 
 
-ssim_data, ssim_dataframe = evalute_psnr_ssim(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images',
-                                              'mssim')
-print(ssim_data)
-ssim_data.plot.bar()
+lpip_data, ssim_dataframe = evalute(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images',
+                                    'lpips')
+print(lpip_data)
+lpip_data.plot.bar()
 plt.show()
