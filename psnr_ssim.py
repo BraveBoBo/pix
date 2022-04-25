@@ -44,14 +44,9 @@ def make_dir(dirpath):
         pass
 
 
-def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后的结果
-    dataname = evaluate_name  # 可复用代码
-    columns = ['with_scrach2predication', 'with_scrach2groundtruth', 'predication2groundtruth']
-    data = create_data(columns)
+def class_photo(dirpath):
     real_A_list, real_B_list, fake_B_list = [], [], []
-
     filenamelist = os.listdir(dirpath)
-
     for filename in filenamelist:
         if 'real_A' in filename:
             real_A_list.append(filename)
@@ -59,10 +54,16 @@ def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后�
             real_B_list.append(filename)
         if 'fake' in filename:
             fake_B_list.append(filename)
+    return real_A_list, real_B_list, fake_B_list
 
+
+def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后的结果
+    dataname = evaluate_name  # 可复用代码
+    columns = ['with_scrach2predication', 'with_scrach2groundtruth', 'predication2groundtruth']
+    data = create_data(columns)
+    real_A_list, real_B_list, fake_B_list = class_photo(dirpath)
     for real_A_filename in real_A_list:
         real_A_img = cv2.imread(os.path.join(dirpath, real_A_filename))
-
         for fake_B_filename in fake_B_list:
             if real_A_filename.split('_')[0] == fake_B_filename.split('_')[0]:
                 fake_B_img = cv2.imread(os.path.join(dirpath, fake_B_filename))
@@ -95,7 +96,9 @@ def evalute_psnr_ssim(dirpath, evaluate_name):  # dirpath 为正向传播之后�
     data_csv = data.to_csv(os.path.join(r'dataset/pix2pix_result', dataname + '.csv'))
     return data, data_csv
 
-ssim_data,ssim_dataframe=evalute_psnr_ssim(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images','mssim')
+
+ssim_data, ssim_dataframe = evalute_psnr_ssim(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images',
+                                              'mssim')
 print(ssim_data)
 ssim_data.plot.bar()
 plt.show()
