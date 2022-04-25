@@ -8,16 +8,11 @@ img = cv2.imread(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\ima
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
-# gaussian
 def create_window(size, sigma):
     x, y = np.mgrid[-size[0] // 2 + 1:size[0] // 2 + 1, -size[1] // 2 + 1:size[1] // 2 + 1]
     gus = np.exp(-(x ** 2 + y ** 2) / (2 * sigma ** 2))
     return gus / gus.sum()
 
-
-# size=(11,11)
-# sigma=1.5
-# print(create_window(size,sigma).shape)
 
 def mssim(img1, img2, size=(11, 11), sigma=1.5, s=False):  # 添加函数的默认值
     img1 = img1.astype(np.float64)
@@ -41,10 +36,6 @@ def mssim(img1, img2, size=(11, 11), sigma=1.5, s=False):  # 添加函数的默�
     # 返回S值 结构相似度
     else:
         return mssim_sum.mean()
-
-
-img1 = cv2.imread(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images\2_fake_B.png')
-img2 = cv2.imread(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images\2_real_A.png')
 
 
 def mssim_multichannel(img1, img2, structure=False):

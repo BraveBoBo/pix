@@ -105,8 +105,10 @@ def evalute(dirpath, dataname):  # dirpath 为正向传播之后的结果 datana
     return data, data_csv
 
 
-lpip_data, ssim_dataframe = evalute(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images',
-                                    'lpips')
-print(lpip_data)
-lpip_data.plot.bar()
+dataname='mse'
+data, dataframe = evalute(r'D:\Files\pix2pix\pix\results\FOLD_AB3_pix2pix\test_latest\images',dataname
+                                    )
+print(data)
+data.plot.bar()
+plt.title(dataname)
 plt.show()

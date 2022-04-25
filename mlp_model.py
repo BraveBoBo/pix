@@ -24,6 +24,3 @@ class Mlp(nn.Module):
             x = tools.dropout_layers(x, 0.5)
         return self.linear3(x)
 
-
-# net = Mlp(3, (6, 4, 3))
-# print(net)
