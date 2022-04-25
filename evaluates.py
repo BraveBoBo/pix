@@ -100,6 +100,7 @@ def evalute(dirpath, dataname):  # dirpath 为正向传播之后的结果 datana
             'predication2groundtruth': predication2groundtruth}
                     }
         data = add_data(data, need_add)
+        print(need_add['index'])
     data_csv = data.to_csv(os.path.join(r'dataset/pix2pix_result', dataname + '.csv'))
     return data, data_csv
 

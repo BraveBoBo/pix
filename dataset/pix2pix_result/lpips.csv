@@ -1,15 +1,15 @@
 ,with_scrach2predication,with_scrach2groundtruth,predication2groundtruth
-11.bmp,"tensor(0.0400, grad_fn=<SqueezeBackward0>)","tensor(0.1031, grad_fn=<SqueezeBackward0>)","tensor(0.0971, grad_fn=<SqueezeBackward0>)"
-12.bmp,"tensor(0.0939, grad_fn=<SqueezeBackward0>)","tensor(0.2104, grad_fn=<SqueezeBackward0>)","tensor(0.1904, grad_fn=<SqueezeBackward0>)"
-13.bmp,"tensor(0.0632, grad_fn=<SqueezeBackward0>)","tensor(0.2397, grad_fn=<SqueezeBackward0>)","tensor(0.2518, grad_fn=<SqueezeBackward0>)"
-17.bmp,"tensor(0.0356, grad_fn=<SqueezeBackward0>)","tensor(0.2480, grad_fn=<SqueezeBackward0>)","tensor(0.2339, grad_fn=<SqueezeBackward0>)"
-20.bmp,"tensor(0.0101, grad_fn=<SqueezeBackward0>)","tensor(0.1772, grad_fn=<SqueezeBackward0>)","tensor(0.1798, grad_fn=<SqueezeBackward0>)"
-21.bmp,"tensor(0.0114, grad_fn=<SqueezeBackward0>)","tensor(0.1404, grad_fn=<SqueezeBackward0>)","tensor(0.1442, grad_fn=<SqueezeBackward0>)"
-23.bmp,"tensor(0.0703, grad_fn=<SqueezeBackward0>)","tensor(0.2579, grad_fn=<SqueezeBackward0>)","tensor(0.2667, grad_fn=<SqueezeBackward0>)"
-24.bmp,"tensor(0.0620, grad_fn=<SqueezeBackward0>)","tensor(0.1979, grad_fn=<SqueezeBackward0>)","tensor(0.2057, grad_fn=<SqueezeBackward0>)"
-26.bmp,"tensor(0.0619, grad_fn=<SqueezeBackward0>)","tensor(0.2811, grad_fn=<SqueezeBackward0>)","tensor(0.2454, grad_fn=<SqueezeBackward0>)"
-28.bmp,"tensor(0.0104, grad_fn=<SqueezeBackward0>)","tensor(0.1772, grad_fn=<SqueezeBackward0>)","tensor(0.1797, grad_fn=<SqueezeBackward0>)"
-2.bmp,"tensor(0.0464, grad_fn=<SqueezeBackward0>)","tensor(0.1514, grad_fn=<SqueezeBackward0>)","tensor(0.1491, grad_fn=<SqueezeBackward0>)"
-5.bmp,"tensor(0.0377, grad_fn=<SqueezeBackward0>)","tensor(0.2307, grad_fn=<SqueezeBackward0>)","tensor(0.2258, grad_fn=<SqueezeBackward0>)"
-6.bmp,"tensor(0.0210, grad_fn=<SqueezeBackward0>)","tensor(0.1143, grad_fn=<SqueezeBackward0>)","tensor(0.1112, grad_fn=<SqueezeBackward0>)"
-9.bmp,"tensor(0.0643, grad_fn=<SqueezeBackward0>)","tensor(0.2413, grad_fn=<SqueezeBackward0>)","tensor(0.2056, grad_fn=<SqueezeBackward0>)"
+11.bmp,0.03999748080968857,0.10311073809862137,0.097061887383461
+12.bmp,0.09390106797218323,0.210423082113266,0.1904093474149704
+13.bmp,0.06315014511346817,0.23966626822948456,0.25176429748535156
+17.bmp,0.035604774951934814,0.24804648756980896,0.23392269015312195
+20.bmp,0.010131141170859337,0.17723152041435242,0.1797555685043335
+21.bmp,0.011420059949159622,0.1404382288455963,0.14420215785503387
+23.bmp,0.07027070969343185,0.25790470838546753,0.2667311728000641
+24.bmp,0.061973199248313904,0.19789926707744598,0.20572194457054138
+26.bmp,0.061906542629003525,0.28108447790145874,0.24537885189056396
+28.bmp,0.010394816286861897,0.17723152041435242,0.1797228753566742
+2.bmp,0.04642539098858833,0.15141479671001434,0.14912103116512299
+5.bmp,0.03765428811311722,0.2307412028312683,0.22578056156635284
+6.bmp,0.02100570686161518,0.11434310674667358,0.11117740720510483
+9.bmp,0.06425189226865768,0.24129235744476318,0.20562507212162018
