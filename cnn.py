@@ -17,7 +17,6 @@ def printbar():
     print('========' * 8 + '%s' % nowtime)
 
 
-
 '''
 读取数据集
 '''
@@ -101,6 +100,7 @@ for epoch in range(1, epochs + 1):
     print(('EPOCH:%d loss:%.3f ' + metric_name + ':%.3f ,val_loss=%.3f' + 'val' + metric_name + ':%.3f') % info)
 print('train end.')
 
+
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -120,6 +120,5 @@ class Net(nn.Module):
         for layer in self.layers:
             x = layer(x)
         return x
-
 # net=Net()
 # summary(net.cuda(),input_size=(1,32,32))

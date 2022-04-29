@@ -211,3 +211,30 @@ def addMark(input_dir, mark_dir, output_dir, number):
         if i == number:
             break
     print('Done.')
+
+
+def adjust_light():
+    Apath = r'D:\Files\data\FOLD4_AB\train\FULL\A-ADD -1'
+    Bpath = r'D:\Files\data\FOLD4_AB\train\FULL\B - 1'
+    listA = os.listdir(Apath)
+    listB = os.listdir(Bpath)
+    for filename in listA:
+        print(filename)
+        imgA = cv2.imread(os.path.join(Apath, filename))
+        imgB = cv2.imread(os.path.join(Bpath, filename))
+        rows, cols, channels = imgA.shape
+        blank = np.zeros([rows, cols, channels], dtype=imgA.dtype)
+        dstA = imgA.copy()
+        dstB = imgB.copy()
+        c = random.uniform(0.2, 0.9)
+        print(c)
+        b = random.randint(1, 100)
+        print(b)
+
+        rstA = cv2.addWeighted(dstA, c, blank, 1 - c, b)
+        rstB = cv2.addWeighted(dstB, c, blank, 1 - c, b)
+        cv2.imwrite(os.path.join(r'D:\Files\data\FOLD4_AB\train\FULL\ADD_L', 'L-' + filename), rstA)
+        cv2.imwrite(os.path.join(r'D:\Files\data\FOLD4_AB\train\FULL\B-1_L', 'L-' + filename), rstB)
+
+
+adjust_light()
